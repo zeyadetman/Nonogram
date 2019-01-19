@@ -26,9 +26,6 @@ export default class Board extends Component {
       board: this.props.label,
       boardId: Math.floor(Math.random() * (levels[this.props.label] ? levels[this.props.label].length : 0))
     }, this.drawBoard);
-    
-    
-    console.log(this.props);
   }
 
 
