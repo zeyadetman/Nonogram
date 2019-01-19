@@ -13,22 +13,19 @@ export default class Board extends Component {
     this.drawBoard = this.drawBoard.bind(this);
     this.cellCheck = this.cellCheck.bind(this);
   }
-  
+
   componentWillReceiveProps(nextProps, nextContext) {
     this.setState({
       board: nextProps.label,
       boardId: Math.floor(Math.random() * (levels[nextProps.label] ? levels[nextProps.label].length : 0))
     }, this.drawBoard);
   }
-  
+
   componentDidMount() {
     this.setState({
       board: this.props.label,
       boardId: Math.floor(Math.random() * (levels[this.props.label] ? levels[this.props.label].length : 0))
     }, this.drawBoard);
-    
-    
-    console.log(this.props);
   }
 
 
@@ -47,7 +44,6 @@ export default class Board extends Component {
     }
 
     this.setState({ painter });
-    console.log(this.state.board, this.state.boardId, this.state.painter);
   }
 
   cellCheck(e) {
