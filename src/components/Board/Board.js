@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { levels } from '../../utils/levels';
 
 export default class Board extends Component {
@@ -29,7 +29,7 @@ export default class Board extends Component {
     for (let row = 0; row < levelCount; row++) {
       painter += "<tr>"
       for (let col = 0; col < levelCount; col++) {
-        painter += `<td id=${row}-${col} style="background: white; color: black ${row === 1 && col === 0 ? '; width: 100px' : ''}">
+        painter += `<td id=${row}-${col} class="empty" style="${row === 1 && col === 0 ? 'width: 100px' : ''}">
     ${(!row && !col) ? "" : (!row || !col) ? levels[this.props.label][this.state.boardId][indx++].toString().replace(/,/g, '') : ''}
   </td>`;
       }
@@ -42,11 +42,11 @@ export default class Board extends Component {
 
   cellCheck(e) {
     const cellId = e.target.id;
-    const cellColor = e.target.style.background;
+    const cellClass = document.getElementById(cellId) && document.getElementById(cellId).classList.value;
 
-    if (!cellId.split('-').some(el => el === '0') && cellId !== 'board') {
-      document.getElementById(cellId).style.background = (cellColor === 'white') ? 'black' : 'white';
-      console.log(cellId, cellColor);
+    if (cellClass && !cellId.split('-').some(el => el === '0') && cellId !== 'board') {
+      document.getElementById(cellId).classList.value = (cellClass === 'empty') ? 'doubtful' : (cellClass === 'doubtful') ? 'fill' : (cellClass === 'fill') ? 'empty' : 'empty';
+      console.log(cellId, document.getElementById(cellId).classList.value);
     }
   }
 

@@ -6,6 +6,10 @@ body{
   text-align: center;
 }
 
+.empty { background: #fff; color: black}
+.fill { background: #000; color: black}
+.doubtful { background:  radial-gradient(circle at 50%, #000 15%, #fff 20%); color: black}
+
 .App {
   display: flex;
   flex-direction: column;
