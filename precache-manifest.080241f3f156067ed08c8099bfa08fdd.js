@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/Nonogram/static/css/main.2cf0394f.chunk.css"
   },
   {
-    "revision": "e18fa48c9d73313e27517396903ae604",
+    "revision": "4e8870088af58feecbc2f3bb2650ae6b",
     "url": "/Nonogram/index.html"
   }
 ];

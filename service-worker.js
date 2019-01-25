@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Nonogram/precache-manifest.bd9d643fb4cb5bed9d9e8aadf74b1c68.js"
+  "/Nonogram/precache-manifest.080241f3f156067ed08c8099bfa08fdd.js"
 );
 
 workbox.clientsClaim();
