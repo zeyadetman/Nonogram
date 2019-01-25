@@ -90,7 +90,9 @@ export default class Board extends Component {
           : "empty";
     }
 
-    this.setState({isBoardSolved: this.isSolved()}, ()=>console.log(this.state.isBoardSolved));
+    const isThisSolved = this.isSolved();
+    this.setState({isBoardSolved: isThisSolved}, ()=>console.log(this.state.isBoardSolved));
+    if(isThisSolved) this.props.handleWinner(isThisSolved);
   }
 
   isSolved() {

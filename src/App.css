@@ -1,14 +1,14 @@
 body{
-  background-color: #282c34;
+  background-color: #1a1a1a;
 }
 
 .App {
   text-align: center;
 }
 
-.empty { background: #fff; color: black}
-.fill { background: #000; color: black}
-.doubtful { background:  radial-gradient(circle at 50%, #000 15%, #fff 20%); color: black}
+.empty { background: #fff; color: #1a1a1a}
+.fill { background: #1a1a1a; color: #1a1a1a}
+.doubtful { background:  radial-gradient(circle at 50%, #1a1a1a 15%, #fff 20%); color: #1a1a1a}
 
 .App {
   display: flex;
@@ -25,16 +25,54 @@ body{
 
 .game {
   text-align: center;
+  position: relative;
 }
 
 #levels {
-  margin-bottom: 25px;
+  margin: 15px;
+  font-size: 24px;
+  background: #1a1a1a;
+  color: #fc3;
+  border: 1px solid #fc3;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#levels:focus{
+  outline: none;
 }
 
 td {
-  font-size: 25px;
+  font-size: 24px;
   word-break: break-word;
   width: 25px;
   border: none;
   text-align: center;
+  border: 1px solid #fff;
+  user-select: none;
+}
+
+.winner {
+  border: 5px solid #fc3;
+  width: 60%;
+  margin: 15vh auto;
+  position: absolute;
+  background: #1a1a1a;
+}
+
+.winner p{
+  margin: 15px;
+}
+
+button{
+  border: none;
+  background: #fc3;
+  color: #1a1a1a;
+  margin: 15px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+button:hover {
+  cursor: pointer;
 }
