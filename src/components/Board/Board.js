@@ -45,11 +45,12 @@ export default class Board extends Component {
 
   drawBoard() {
     let indx = 0;
-    const levelCount = ++this.props.label.split("x")[0];
+    const levelCountCol = ++this.props.label.split("x")[0];
+    const levelCount = ++this.props.label.split("x")[1];
     let painter = "";
     for (let row = 0; row < levelCount; row++) {
       painter += "<tr>";
-      for (let col = 0; col < levelCount; col++) {
+      for (let col = 0; col < levelCountCol; col++) {
         painter += `<td id=${row}-${col} class="empty" style="${
           row === 1 && col === 0 ? "width: 100px" : ""
         }">
@@ -124,12 +125,14 @@ export default class Board extends Component {
 
     let filledCells = [].slice.call(document.getElementsByClassName("fill"));
     filledCells = filledCells.map(e => e.id);
+
     const boardCols = +board.split("x")[0];
     const boardRows = +board.split("x")[1];
 
     const res = new Array(boardCols)
       .fill()
       .map(() => new Array(boardRows).fill(0));
+
     filledCells.forEach(cell => {
       const id = cell.split("-");
       res[parseInt(id[1]) - 1][parseInt(id[0]) - 1] = 1;
@@ -137,6 +140,7 @@ export default class Board extends Component {
     const transposed = res.map((col, i) => res.map(row => row[i]));
 
     const final = [...this.reduceBoard(res), ...this.reduceBoard(transposed)];
+    console.log(levels[board][boardId], final);
     return JSON.stringify(levels[board][boardId]) === JSON.stringify(final);
   }
 
