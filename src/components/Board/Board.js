@@ -14,6 +14,7 @@ export default class Board extends Component {
     this.drawBoard = this.drawBoard.bind(this);
     this.cellCheck = this.cellCheck.bind(this);
     this.isSolved = this.isSolved.bind(this);
+    this.reduceBoard = this.reduceBoard.bind(this);
   }
 
   componentWillReceiveProps(nextProps, nextContext) {
@@ -91,26 +92,52 @@ export default class Board extends Component {
     }
 
     const isThisSolved = this.isSolved();
-    this.setState({isBoardSolved: isThisSolved}, ()=>console.log(this.state.isBoardSolved));
-    if(isThisSolved) this.props.handleWinner(isThisSolved);
+    this.setState({ isBoardSolved: isThisSolved }, () =>
+      console.log(this.state.isBoardSolved)
+    );
+    if (isThisSolved) this.props.handleWinner(isThisSolved);
+  }
+
+  reduceBoard(res) {
+    let final = [];
+    for (let index = 0; index < res.length; index++) {
+      let element = [];
+      let counter = 0;
+      for (let col = 0; col < res[index].length; col++) {
+        if (res[index][col] === 1) {
+          counter++;
+        } else if (res[index][col] === 0) {
+          element.push(counter);
+          counter = 0;
+        }
+      }
+      element.push(counter);
+      element = element.filter(el => el);
+      final = [...final, element];
+    }
+
+    return final;
   }
 
   isSolved() {
     const { board, boardId } = this.state;
 
-    let filledCells = [].slice.call(document.getElementsByClassName('fill'));
+    let filledCells = [].slice.call(document.getElementsByClassName("fill"));
     filledCells = filledCells.map(e => e.id);
-    const boardCols = +board.split('x')[0];
-    const boardRows = +board.split('x')[1];
-    const levelSummed = levels[board][boardId].map(e => e.reduce((prev, cur) => prev + cur, 0))
-    const res = new Array(boardCols+boardRows).fill(0);
-    filledCells.forEach(cell => {
-      const id = cell.split('-');
-      res[--(id[0]) + boardCols]++;
-      res[--(id[1])]++;
-    })
+    const boardCols = +board.split("x")[0];
+    const boardRows = +board.split("x")[1];
 
-    return res.every((val, indx) => val === levelSummed[indx]);
+    const res = new Array(boardCols)
+      .fill()
+      .map(() => new Array(boardRows).fill(0));
+    filledCells.forEach(cell => {
+      const id = cell.split("-");
+      res[parseInt(id[1]) - 1][parseInt(id[0]) - 1] = 1;
+    });
+    const transposed = res.map((col, i) => res.map(row => row[i]));
+
+    const final = [...this.reduceBoard(res), ...this.reduceBoard(transposed)];
+    return JSON.stringify(levels[board][boardId]) === JSON.stringify(final);
   }
 
   render() {
