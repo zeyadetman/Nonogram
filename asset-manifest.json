@@ -1,13 +1,13 @@
 {
-  "main.css": "/Nonogram/static/css/main.2cf0394f.chunk.css",
-  "main.js": "/Nonogram/static/js/main.0c68f918.chunk.js",
-  "main.js.map": "/Nonogram/static/js/main.0c68f918.chunk.js.map",
-  "static/js/1.110690f6.chunk.js": "/Nonogram/static/js/1.110690f6.chunk.js",
-  "static/js/1.110690f6.chunk.js.map": "/Nonogram/static/js/1.110690f6.chunk.js.map",
+  "main.css": "/Nonogram/static/css/main.60c3dcf2.chunk.css",
+  "main.js": "/Nonogram/static/js/main.a67e6574.chunk.js",
+  "main.js.map": "/Nonogram/static/js/main.a67e6574.chunk.js.map",
+  "static/js/1.b73aa155.chunk.js": "/Nonogram/static/js/1.b73aa155.chunk.js",
+  "static/js/1.b73aa155.chunk.js.map": "/Nonogram/static/js/1.b73aa155.chunk.js.map",
   "runtime~main.js": "/Nonogram/static/js/runtime~main.878dc9e8.js",
   "runtime~main.js.map": "/Nonogram/static/js/runtime~main.878dc9e8.js.map",
-  "static/css/main.2cf0394f.chunk.css.map": "/Nonogram/static/css/main.2cf0394f.chunk.css.map",
+  "static/css/main.60c3dcf2.chunk.css.map": "/Nonogram/static/css/main.60c3dcf2.chunk.css.map",
   "index.html": "/Nonogram/index.html",
-  "precache-manifest.080241f3f156067ed08c8099bfa08fdd.js": "/Nonogram/precache-manifest.080241f3f156067ed08c8099bfa08fdd.js",
+  "precache-manifest.eeca71f0f81e3a9e6e30d1a3500a2ba1.js": "/Nonogram/precache-manifest.eeca71f0f81e3a9e6e30d1a3500a2ba1.js",
   "service-worker.js": "/Nonogram/service-worker.js"
 }
